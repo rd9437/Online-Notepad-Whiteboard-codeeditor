@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Notepad, Whiteboard & Code Runner</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Online Notepad, Whiteboard & Code Runner</h1>
+            <p>Notes and sketches save locally while code runs instantly via OneCompiler</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab(this, 'notepad')">
+                📝 Notepad
+            </button>
+            <button class="tab" onclick="switchTab(this, 'whiteboard')">
+                🎨 Whiteboard
+            </button>
+            <button class="tab" onclick="switchTab(this, 'code')">
+                💻 Code Editor
+            </button>
+        </div>
+
+        <!-- Notepad Section -->
+        <div id="notepad-content" class="content active">
+            <div class="notepad-container">
+                <div class="notepad-toolbar">
+                    <button onclick="clearNotepad()">🗑️ Clear All</button>
+                    <button onclick="downloadNotepad()">💾 Download</button>
+                    <button onclick="copyNotepad()">📋 Copy to Clipboard</button>
+                    <button onclick="changeFontSize('increase')">🔍+ Increase Font</button>
+                    <button onclick="changeFontSize('decrease')">🔍- Decrease Font</button>
+                </div>
+                <textarea id="notepad" placeholder="Start typing your notes here..."></textarea>
+                <div class="status" id="notepad-status">Auto-save enabled</div>
+            </div>
+        </div>
+
+        <!-- Whiteboard Section -->
+        <div id="whiteboard-content" class="content">
+            <div class="whiteboard-container">
+                <div class="whiteboard-toolbar">
+                    <div class="toolbar-group">
+                        <label>Color:</label>
+                        <input type="color" id="colorPicker" value="#000000">
+                    </div>
+                    <div class="toolbar-group">
+                        <label>Brush Size:</label>
+                        <input type="range" id="brushSize" min="1" max="50" value="3">
+                        <span id="brushSizeValue">3</span>
+                    </div>
+                    <div class="toolbar-group">
+                        <button onclick="clearWhiteboard()">🗑️ Clear Canvas</button>
+                        <button onclick="downloadWhiteboard()">💾 Download Image</button>
+                        <button onclick="toggleEraser()">✏️ <span id="eraserText">Eraser</span></button>
+                    </div>
+                </div>
+                <div class="canvas-wrapper">
+                    <canvas id="whiteboardCanvas" width="1000" height="600"></canvas>
+                </div>
+                <div class="status" id="whiteboard-status">Auto-save enabled</div>
+            </div>
+        </div>
+
+        <!-- Code Editor Section -->
+        <div id="code-content" class="content">
+            <div class="code-editor-container">
+                <div class="code-toolbar">
+                    <div class="code-toolbar-group">
+                        <label for="compilerLanguage">Language:</label>
+                        <select id="compilerLanguage">
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="c">C</option>
+                            <option value="cpp">C++</option>
+                            <option value="csharp">C#</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="go">Go</option>
+                            <option value="php">PHP</option>
+                            <option value="kotlin">Kotlin</option>
+                            <option value="swift">Swift</option>
+                            <option value="bash">Bash</option>
+                            <option value="html">HTML/CSS/JS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="code-embed-wrapper">
+                    <iframe
+                        id="oneCompilerFrame"
+                        title="OneCompiler embedded IDE"
+                        src=""
+                        frameborder="0"
+                        allow="fullscreen"
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | By Rudransh Das</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
