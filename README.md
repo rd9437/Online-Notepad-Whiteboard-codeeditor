@@ -1,6 +1,6 @@
 # 📝 Online Notepad, Whiteboard & Code Runner
 
-🌐 **[Live Demo »](https://rd9437.github.io/Online-Notepad-Whiteboard-codeeditor/)**
+🌐 **[Live Demo »](https://rd9437.github.io/Online-Notepad-Whiteboard-CodeEditor/)**
 
 A clean, simple, and beginner-friendly online notepad, whiteboard, and code playground built with vanilla HTML, CSS, and JavaScript. It saves notes and drawings locally using `localStorage`, and now embeds a hosted code runner so you can execute snippets without leaving the page.
 
